@@ -27,9 +27,94 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello, World!" << endl;
-    return 0;
-}
+/*
+    //Constant variables
+    const int MAX_ATTEMPTS = 3; // # of attempts that the user has on a question
+    const int LEVEL_RANGE_CHANGE = 10; // The range in which the range of numbers change when leveling up/down
+
+    //Used to change the font color
+    const string RED = "\033[31m";
+    const string GREEN = "\033[32m";
+    const string DEFAULT = "\033[0m";
+
+    //used to determine what symbol of math is used.
+    enum MathType  {MT_ADD, MT_SUB, MT_MUL, MT_DIV};
+    MathType questionType;
+
+    //range of possible numbers for question.
+    int currentRange = 10;
+
+    //variable that holds the symbol for the math problem
+    char mathSymbol = '?';
+    int mathLevel = 1;
+
+    //These are the variables needed for the program to work
+    string userName = "unknown";
+    int userAns = 0;
+    string userInput = "";
+    int leftNum = 0;
+    int rightNum = 0;
+
+    //Makes sure that the leftNum will always be bigger than the rightNum so that it doesn't produce negative numbers
+    int tempNum = 0;
+
+    //Used to determine if user got the question correct
+    int correctAns = 0;
+    //Used to keep track of total correct and wrong answers the user has gotten
+    int correctNum = 0;
+    int incorrectNum = 0;
+    int attempts;
+
+    int totalCorrect;
+    int totalIncorrect;
+    int average;
+
+    //makes a 2D vector
+    vector<vector<int>> question;
+
+    //The srand() and time restart the rand() so the numbers and equation sign are different everytime
+    srand(time(NULL));
+
+*/
+
+
+
+
+      // display program intro
+    cout << "************************************************************************************************************************" << endl;
+    cout << "                                   __        _____  _   _ ____  _____ ____    _                                         " << endl;
+    cout << "                                   \\ \\      / / _ \\| \\ | |  _ \\| ____|  _ \\  | |                                  " << endl;
+    cout << "                                    \\ \\ /\\ / / | | |  \\| | | | |  _| | |_) | | |                                    " << endl;
+    cout << "                                     \\ V  V /| |_| | |\\  | |_| | |___|  _ <  |_|                                      " << endl;
+    cout << "                                      \\_/\\_/  \\___/|_| \\_|____/|_____|_| \\_\\ (_)                                  " << endl;
+    cout << endl;
+    cout << "************************************************************************************************************************" << endl;
+    cout << "*                                              Winter Wonderland Math Tutor                                            *" << endl;
+    cout << "************************************************************************************************************************" << endl;
+    cout << endl;
+    // Used Jazmin's and Linz's jokes from their program
+    cout << "Fun Math Facts:" << endl;
+    cout << " * There is no roman numeral for zero.                                                                                  " << endl;
+    cout << " * There is an infinite amount of numbers between every number we normally use.                                         " << endl;
+    cout << " * The symbol for division is also known as Obelus.                                                                     " << endl;
+    cout << " * 42 is the answer to life, the universe and everything according to Douglas Adam's Hitchhiker's Guide to the Galaxy.  " << endl;
+    cout << " * Math was invented by John Math in the year 1 when he decided to figure out what came after one.                      " << endl;
+    cout << " * If you put the numbers 8 and 7 next to each other and turn your head to the left it will make a plague doctor mask.  " << endl;
+    cout << " * The word 'one' is the only number that is spelled in descending order.                                               " << endl;
+    cout << " * There are at least two people in the world who knows what 6 + 9 + 6 * 9 equals.                                      " << endl;
+    cout << endl;
+    cout << "************************************************************************************************************************" << endl;
+    cout << endl;
+
+    //Prompt the user for their name
+    cout << "Please enter your name: ";
+    getline(cin, userName); // able to use the name entered, even if it has spaces in it
+    cout << endl;
+
+    // Welcome the user to the game
+    cout << "Welcome " << userName << " to the Winter Wonderland Math Tutor! " << endl;
+    cout << endl;
+
 
 string RandomJokeSets() {
         int jokeType = (rand() % 4) + 1;
@@ -99,4 +184,6 @@ string RandomJokeSets() {
 
 
 
+}
+     return 0;
 }
