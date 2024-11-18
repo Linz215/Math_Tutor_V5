@@ -25,6 +25,10 @@ Description: This program is an easy Math Tutor. It is a program that is intende
 
 using namespace std;
 
+//Constant global variable
+const int LEVEL_RANGE_CHANGE = 10;
+string userInput; // checks for yes or no
+
 //
 void DisplayGameIntro() {
     // display program intro
@@ -113,7 +117,7 @@ void DisplayGameIntro() {
                     << endl;
             break;
     }
-
+    return;
 }
 
 //
@@ -124,10 +128,12 @@ string GetUserName() {
     getline(cin, userName); // able to use the name entered, even if it has spaces in it
     cout << "Welcome " << userName << " to the Winter Wonderland Math Tutor! " << endl;
     cout << endl;
+    //return??
 }
 
 //
 int GetNumericValue(int userAnswer){ //This is the function that gets the answer to the question
+
     int userAnswer = 0;
     while (!(cin >> userAnswer)) {
         cin.clear();
@@ -141,6 +147,25 @@ int GetNumericValue(int userAnswer){ //This is the function that gets the answer
 
 //
 string AskToPlayAgain(string username) {
+
+
+    // fix i
+    while (true) {
+        //While loop to continue program
+        cout << "Do you want to continue(y=yes or n=no)?";
+        getline(cin, userInput); // check users input for letters
+        for (i = 0; i < userInput.size(); i++) {
+            userInput.at(i) = tolower(userInput.at(i));
+        }
+
+        if (userInput == "yes" || userInput == "y" || userInput == "n" || userInput == "no") {
+            // progresses the user forward into the code
+            break;
+        } else {
+            cout << "Invalid Input, please try again." << endl << endl;
+            // output if the user enters letters instead of numbers
+        }
+    }
 }
 
 //
@@ -161,13 +186,12 @@ bool GiveAttempts(string username, vector<int>row) {
 
 int main() {
     // declare and initialized variables
+    const int MAX_ATTEMPTS = 3;
 
-    string userInput; // checks for yes or no
+    string userName; // checks for name
 
     char mathSymbol;
-    //Constant variables
 
-    const int LEVEL_RANGE_CHANGE = 10;
 
     int userAnswer; // checks for user number answer for math problems
     int leftNum;
@@ -345,7 +369,7 @@ do {
             << "\nAverage Correct :" <<setw(4)<<right<< 100 - (totalIncorrect * 100 / totalCorrect) << "%\n" //shows average
             << "\nThank you for trying out our game! If you would like to play again, feel free to do so, otherwise, this game is still in development so stay tuned for updates in the future."
             << "\nEnd of program."; //End of program message
-}
+
 
      return 0;
 }
