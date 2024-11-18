@@ -25,29 +25,8 @@ Description: This program is an easy Math Tutor. It is a program that is intende
 
 using namespace std;
 
-int main() {
-    // declare and initialized variables
-    string userName; // checks for name
-    string userInput; // checks for yes or no
-
-    char mathSymbol;
-    const int MAX_ATTEMPTS = 3;
-    const int LEVEL_RANGE_CHANGE = 10;
-    int userAnswer; // checks for user number answer for math problems
-    int leftNum;
-    int rightNum;
-    int correctAnswer;
-    int tempNum;
-    int totalCorrect = 0;
-    int totalIncorrect = 0;
-    int mathLevel = 1;
-    int currentRange = LEVEL_RANGE_CHANGE;
-    int i; // used for for loops, decided to put it up here for simplicity
-    enum mathType { MT_ADD, MT_SUB, MT_MUL, MT_DIV };
-    int jokeType = (rand() % 4) + 1;
-    srand(time(0)); // takes completely random numbers and math types every time
-    vector<vector<int> > questions;
-
+//
+void DisplayGameIntro() {
     // display program intro
     cout <<
             "************************************************************************************************************************"
@@ -67,6 +46,8 @@ int main() {
     cout <<
             "************************************************************************************************************************"
             << endl;
+
+    int jokeType = (rand() % 4) + 1;
 
     //Random Joke sets
     switch (jokeType) {
@@ -133,12 +114,70 @@ int main() {
             break;
     }
 
+}
 
+//
+string GetUserName() {
+    string userName; // checks for name
     // get username and welcome the user to the game
     cout << "Please enter your name: ";
     getline(cin, userName); // able to use the name entered, even if it has spaces in it
     cout << "Welcome " << userName << " to the Winter Wonderland Math Tutor! " << endl;
     cout << endl;
+}
+
+//
+int GetNumericValue() {
+
+}
+
+//
+string AskToPlayAgain(string username) {
+}
+
+//
+void DisplaySumrEPORT(const vector<vector<int>> &question) {
+}
+
+//
+bool GiveAttempts(string username, vector<int>row) {
+    const int MAX_ATTEMPTS = 3;
+    bool isCorrect = false;
+
+}
+
+//
+
+
+int main() {
+    // declare and initialized variables
+
+    string userInput; // checks for yes or no
+
+    char mathSymbol;
+    //Constant variables
+
+    const int LEVEL_RANGE_CHANGE = 10;
+
+    int userAnswer; // checks for user number answer for math problems
+    int leftNum;
+    int rightNum;
+    int correctAnswer;
+    int tempNum;
+    int totalCorrect = 0;
+    int totalIncorrect = 0;
+    int mathLevel = 1;
+
+    int currentRange = LEVEL_RANGE_CHANGE;
+    int i; // used for for loops, decided to put it up here for simplicity
+    enum mathType { MT_ADD, MT_SUB, MT_MUL, MT_DIV };
+
+    srand(time(0)); // takes completely random numbers and math types every time
+    vector<vector<int> > questions;
+
+
+
+
 
 do {
         // asks a randomized math question with random numbers
