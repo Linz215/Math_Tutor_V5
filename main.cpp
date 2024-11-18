@@ -127,8 +127,16 @@ string GetUserName() {
 }
 
 //
-int GetNumericValue() {
-
+int GetNumericValue(int userAnswer){ //This is the function that gets the answer to the question
+    int userAnswer = 0;
+    while (!(cin >> userAnswer)) {
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), // ADD LIMIT LIBRARBY TO MAKE IT WORK
+                   '\n');
+        cout << "\tInvalid input!" << endl;
+        cout << "\tPlease enter an number: ";
+    }
+    return userAnswer;
 }
 
 //
@@ -147,6 +155,8 @@ bool GiveAttempts(string username, vector<int>row) {
 }
 
 //
+
+
 
 
 int main() {
