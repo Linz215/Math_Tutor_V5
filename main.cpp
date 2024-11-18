@@ -28,6 +28,15 @@ using namespace std;
 //Constant global variable
 const int LEVEL_RANGE_CHANGE = 10;
 string userInput; // checks for yes or no
+char mathSymbol;
+int userAnswer; // checks for user number answer for math problems
+int leftNum;
+int rightNum;
+int correctAnswer;
+int tempNum;
+int totalCorrect = 0;
+int totalIncorrect = 0;
+int mathLevel = 1;
 
 //
 void DisplayGameIntro() {
@@ -169,7 +178,41 @@ string AskToPlayAgain(string username) {
 }
 
 //
-void DisplaySumrEPORT(const vector<vector<int>> &question) {
+void DisplaySumrEPORT(const vector<vector<int>> questions) {
+    int i;
+
+    for (i = 0; i < 35; i++) cout << "=";
+    cout << "\n|         Summary Report         |\n";
+
+    for (i = 0; i < 35; i++) cout << "=";
+    cout << "\nLevel       Question      Attempts\n" << "----- ------------------ ---------";
+
+    //Calls data for Summary report and displays it
+    for (i = 0; i < questions.size(); i++) {
+        mathLevel = questions.at(i).at(0);
+        leftNum = questions.at(i).at(1);
+        mathSymbol = static_cast<char>(questions.at(i).at(2));
+        rightNum = questions.at(i).at(3);
+        correctAnswer = questions.at(i).at(4);
+        tempNum = questions.at(i).at(5);
+        cout << "\n  " << setw(3) << left << mathLevel << setw(6) << right << leftNum << " " << mathSymbol << " " <<
+                setw(3) << left << rightNum << setw(3) << " = " << setw(3) << right << correctAnswer;
+
+        if (tempNum == 0) {
+            cout << setw(11) << "Incorrect";
+            totalIncorrect++;
+        } else cout << setw(7) << tempNum;
+        totalCorrect++;
+    }
+
+    //displays how user did
+    cout    << "\nTotal Questions :" <<setw(4)<<right<< totalCorrect //Shows total questions
+            << "\nTotal Correct   :"<<setw(4)<<right << totalCorrect - totalIncorrect //no total question varible to keep help with storage
+            << "\nTotal Incorrect :" <<setw(4)<<right<< totalIncorrect //shows total incorrect
+            << "\nAverage Correct :" <<setw(4)<<right<< 100 - (totalIncorrect * 100 / totalCorrect) << "%\n" //shows average
+            << "\nThank you for trying out our game! If you would like to play again, feel free to do so, otherwise, this game is still in development so stay tuned for updates in the future."
+            << "\nEnd of program."; //End of program message
+    //Still needs to return something but I cant remember what
 }
 
 //
